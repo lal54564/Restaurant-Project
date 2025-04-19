@@ -1,0 +1,21 @@
+.party-card {
+    transition: all 0.3s ease;
+}
+
+.party-card:hover {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+#toast {
+    animation: slideIn 0.5s, fadeOut 0.5s 2.5s;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}

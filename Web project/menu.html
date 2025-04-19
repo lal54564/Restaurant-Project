@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSS - Luxury Dining</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body class="bg-gray-50 font-poppins">
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-utensils text-3xl text-amber-600 mr-2"></i>
+                <h1 class="text-2xl font-bold text-gray-800 font-playfair">GSS</h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-800 hover:text-amber-600 transition">Home</a>
+                <a href="C:\Users\Windows\OneDrive\Desktop\Web project\menu_soup.html" class="text-gray-800 hover:text-amber-600 transition">Soups</a>
+                <a href="C:\Users\Windows\OneDrive\Desktop\Web project\menu_main.html" class="text-gray-800 hover:text-amber-600 transition">Main Courses</a>
+                <a href="C:\Users\Windows\OneDrive\Desktop\Web project\menu_desserts.html" class="text-gray-800 hover:text-amber-600 transition">Desserts</a>
+                <a href="C:\Users\Windows\OneDrive\Desktop\Web project\drinks_menu.html" class="text-gray-800 hover:text-amber-600 transition">Drinks</a>
+                <a href="C:\Users\Windows\OneDrive\Desktop\Web project\cart.html" class="text-gray-800 hover:text-amber-600 transition">Cart</a>
+
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-800">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <a href="index.html" class="block py-2 text-gray-800 hover:text-amber-600">Home</a>
+            <a href="C:\Users\Windows\OneDrive\Desktop\Web project\menu_main.html" class="block py-2 text-gray-800 hover:text-amber-600">Main Courses</a>
+            <a href="desserts.html" class="block py-2 text-gray-800 hover:text-amber-600">Desserts</a>
+            <a href="C:\Users\Windows\OneDrive\Desktop\Web project\drinks_menu.html" class="block py-2 text-gray-800 hover:text-amber-600">Drinks</a>
+            <a href="cart.html" class="block py-2 text-gray-800 hover:text-amber-600">cart</a>
+        </div>
+    </header>
+    <section class="bg-gradient-to-r from-amber-50 to-amber-100 py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6 font-playfair">Exquisite Culinary Experience</h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Discover our carefully crafted menu featuring the finest ingredients from around the world</p>
+            <div class="relative max-w-md mx-auto">
+                <input type="text" placeholder="Search our menu..." class="w-full py-3 px-4 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-amber-600 text-white p-2 rounded-full hover:bg-amber-700 transition">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 font-playfair">Our Menu Categories</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <a href="C:\Users\Windows\OneDrive\Desktop\Web project\menu_soup.html" class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                    <img src="Soup.jpg" alt="Appetizers" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Soups</h3>
+                            <p class="text-amber-300">Start your culinary journey</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="C:\Users\Windows\OneDrive\Desktop\Web project\menu_main.html" class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                    <img src="https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg" alt="Main Courses" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Main Courses</h3>
+                            <p class="text-amber-300">Signature dishes</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="C:\Users\Windows\OneDrive\Desktop\Web project\menu_desserts.html" class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                    <img src="https://images.pexels.com/photos/3026804/pexels-photo-3026804.jpeg" alt="Desserts" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Desserts</h3>
+                            <p class="text-amber-300">Sweet indulgences</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="C:\Users\Windows\OneDrive\Desktop\Web project\drinks_menu.html" class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                    <img src="https://images.pexels.com/photos/128242/pexels-photo-128242.jpeg" alt="Drinks" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Drinks</h3>
+                            <p class="text-amber-300">Fine beverages</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 font-playfair">GSS</h3>
+                    <p class="text-gray-300">Kelambakkam - Vandalur Rd, Rajan Nagar, Chennai, Tamil Nadu 600127</p>
+                    <p class="text-gray-300 mt-2">Phone:+91 6302154564</p>
+                    <p class="text-gray-300">Email: lalganesh2190@gamil.com</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 font-playfair">Opening Hours</h3>
+                    <p class="text-gray-300">Monday - Friday: 11:00 AM - 10:00 PM</p>
+                    <p class="text-gray-300">Saturday - Sunday: 10:00 AM - 11:00 PM</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 font-playfair">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/feed/" class="text-gray-300 hover:text-amber-400 transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/" class="text-gray-300 hover:text-amber-400 transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="https://x.com/home" class="text-gray-300 hover:text-amber-400 transition"><i class="fab fa-twitter text-xl"></i></a>
+                    </div>
+                    <h4 class="text-lg font-bold mt-6 mb-2 font-playfair">Newsletter</h4>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="py-2 px-3 rounded-l text-gray-800 w-full">
+                        <button class="bg-amber-600 hover:bg-amber-700 px-4 rounded-r transition">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 GSS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <div id="item-modal" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="relative">
+                <button id="close-modal" class="absolute top-4 right-4 text-white bg-black/30 rounded-full p-2 hover:bg-black/50 transition">
+                    <i class="fas fa-times"></i>
+                </button>
+                <img id="modal-image" src="" alt="" class="w-full h-64 md:h-96 object-cover rounded-t-lg">
+            </div>
+            <div class="p-6">
+                <h3 id="modal-title" class="text-2xl font-bold text-gray-800 mb-2 font-playfair"></h3>
+                <p id="modal-price" class="text-amber-600 text-xl font-semibold mb-4"></p>
+                <p id="modal-description" class="text-gray-600 mb-6"></p>
+                <div class="mb-6">
+                    <h4 class="font-bold text-gray-800 mb-2">Ingredients:</h4>
+                    <ul id="modal-ingredients" class="list-disc pl-5 text-gray-600"></ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-800 mb-2">Preparation Time:</h4>
+                    <p id="modal-time" class="text-gray-600"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

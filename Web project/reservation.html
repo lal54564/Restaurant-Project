@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSS Hotel Room Reservation</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e67e22;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            background-image: linear-gradient(rgba(245, 247, 250, 0.9), rgba(245, 247, 250, 0.9)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            background-image: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .tagline {
+            font-style: italic;
+            color: #ddd;
+            font-size: 18px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .reservation-form {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            flex: 1 0 300px;
+            margin-right: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .form-group:last-child {
+            margin-right: 0;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        input:focus, select:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+        
+        .room-types {
+            margin-top: 30px;
+        }
+        
+        .room-types h2 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+        
+        .room-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .room-card {
+            flex: 1 0 300px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            background-color: white;
+        }
+        
+        .room-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .room-card.selected {
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
+        }
+        
+        .room-image {
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-weight: bold;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .room-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .room-card:hover .room-image img {
+            transform: scale(1.05);
+        }
+        
+        .room-details {
+            padding: 15px;
+        }
+        
+        .room-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .room-price {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        
+        .btn-submit {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 20px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-submit:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-submit:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: var(--primary-color);
+            background-image: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('/api/placeholder/1200/300');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        input.error {
+            border-color: #e74c3c;
+        }
+        
+        .success-message {
+            background-color: #2ecc71;
+            background-image: linear-gradient(rgba(46, 204, 113, 0.9), rgba(46, 204, 113, 0.9)), url('/api/placeholder/1000/200');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+            text-align: center;
+            font-size: 18px;
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+        }
+        
+        .amenities {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .amenity {
+            background-color: #f5f7fa;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            color: var(--dark-color);
+        }
+        
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .form-group {
+                flex: 1 0 100%;
+                margin-right: 0;
+            }
+            
+            .room-card {
+                flex: 1 0 100%;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .tagline {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>GSS HOTEL RESERVATIONS</h1>
+            <p class="tagline">Experience the epitome of comfort and elegance</p>
+        </header>
+        
+        <div class="success-message" id="successMessage">
+            <h3>Thank you for your reservation!</h3>
+            <p>Your booking request has been submitted successfully. We will contact you shortly to confirm the details.</p>
+        </div>
+        
+        <form class="reservation-form" id="reservationForm">
+            <h2 class="section-heading">Personal Information</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fullName">Full Name*</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                    <p class="error-message" id="fullNameError">Please enter your full name</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="email" required>
+                    <p class="error-message" id="emailError">Please enter a valid email address</p>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phone">Phone Number*</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    <p class="error-message" id="phoneError">Please enter a valid phone number</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="aadhar">Aadhar Card Number*</label>
+                    <input type="text" id="aadhar" name="aadhar" maxlength="12" required>
+                    <p class="error-message" id="aadharError">Please enter a valid 12-digit Aadhar number</p>
+                </div>
+            </div>
+            
+            <h2 class="section-heading">Stay Details</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="checkin">Check-in Date*</label>
+                    <input type="date" id="checkin" name="checkin" required>
+                    <p class="error-message" id="checkinError">Please select a check-in date</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="checkout">Check-out Date*</label>
+                    <input type="date" id="checkout" name="checkout" required>
+                    <p class="error-message" id="checkoutError">Please select a check-out date</p>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="adults">Adults*</label>
+                    <select id="adults" name="adults" required>
+                        <option value="">Select</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <p class="error-message" id="adultsError">Please select number of adults</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="children">Children</label>
+                    <select id="children" name="children">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="rooms">Rooms*</label>
+                    <select id="rooms" name="rooms" required>
+                        <option value="">Select</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <p class="error-message" id="roomsError">Please select number of rooms</p>
+                </div>
+            </div>
+            
+            <div class="room-types">
+                <h2 class="section-heading">Select Room Type</h2>
+                <input type="hidden" id="roomType" name="roomType" value="" required>
+                <p class="error-message" id="roomTypeError">Please select a room type</p>
+                
+                <div class="room-cards">
+                    <div class="room-card" data-room-type="standard">
+                        <div class="room-image">
+                            <img src="standard_room.jpg" alt="Standard Room">
+                        </div>
+                        <div class="room-details">
+                            <h3>Standard Room</h3>
+                            <p>Our comfortable standard rooms feature all essential amenities for a pleasant stay.</p>
+                            <div class="amenities">
+                                <span class="amenity">Free WiFi</span>
+                                <span class="amenity">TV</span>
+                                <span class="amenity">AC</span>
+                                <span class="amenity">King Bed</span>
+                            </div>
+                            <div class="room-price">₹3,500 / night</div>
+                        </div>
+                    </div>
+                    
+                    <div class="room-card" data-room-type="deluxe">
+                        <div class="room-image">
+                            <img src="Deluxe-Room.jpg" alt="Deluxe Room">
+                        </div>
+                        <div class="room-details">
+                            <h3>Deluxe Room</h3>
+                            <p>Spacious deluxe rooms with premium amenities and a beautiful view.</p>
+                            <div class="amenities">
+                                <span class="amenity">Free WiFi</span>
+                                <span class="amenity">Smart TV</span>
+                                <span class="amenity">AC</span>
+                                <span class="amenity">King Bed</span>
+                                <span class="amenity">Mini Bar</span>
+                                <span class="amenity">Balcony</span>
+                            </div>
+                            <div class="room-price">₹5,500 / night</div>
+                        </div>
+                    </div>
+                    
+                    <div class="room-card" data-room-type="suite">
+                        <div class="room-image">
+                            <img src="suite3.jpg" alt="Suite Room">
+                        </div>
+                        <div class="room-details">
+                            <h3>Suite Room</h3>
+                            <p>Luxurious suite with separate living area, premium amenities, and personalized service.</p>
+                            <div class="amenities">
+                                <span class="amenity">Free WiFi</span>
+                                <span class="amenity">Smart TV</span>
+                                <span class="amenity">AC</span>
+                                <span class="amenity">King Bed</span>
+                                <span class="amenity">Mini Bar</span>
+                                <span class="amenity">Balcony</span>
+                                <span class="amenity">Jacuzzi</span>
+                                <span class="amenity">Butler Service</span>
+                            </div>
+                            <div class="room-price">₹8,500 / night</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn-submit">Book Now</button>
+            <a href="menu.html">
+                <button type="button" class="btn-submit">Order Food</button>
+              </a>
+              
+
+
+        </form>
+        
+        <footer>
+            <p>&copy; 2025 GSS Hotel. All rights reserved.</p>
+            <p>For assistance, call: +91 6302154564 | Email: lalganesh2190@gamil.com</p>
+        </footer>
+    </div>
+    
+    <script>
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        
+        const formatDate = (date) => {
+            return date.toISOString().split('T')[0];
+        };
+        document.getElementById('checkin').min = formatDate(today);
+        document.getElementById('checkout').min = formatDate(tomorrow);
+        const roomCards = document.querySelectorAll('.room-card');
+        const roomTypeInput = document.getElementById('roomType');
+        roomCards.forEach(card => {
+            card.addEventListener('click', () => {
+                roomCards.forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                roomTypeInput.value = card.getAttribute('data-room-type');
+                document.getElementById('roomTypeError').style.display = 'none';
+            });
+        });
+        const reservationForm = document.getElementById('reservationForm');
+        const successMessage = document.getElementById('successMessage');
+        reservationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+            const fullName = document.getElementById('fullName');
+            if (!fullName.value.trim()) {
+                document.getElementById('fullNameError').style.display = 'block';
+                fullName.classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('fullNameError').style.display = 'none';
+                fullName.classList.remove('error');
+            }
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                document.getElementById('emailError').style.display = 'block';
+                email.classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('emailError').style.display = 'none';
+                email.classList.remove('error');
+            }
+            const phone = document.getElementById('phone');
+            const phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(phone.value)) {
+                document.getElementById('phoneError').style.display = 'block';
+                phone.classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('phoneError').style.display = 'none';
+                phone.classList.remove('error');
+            }
+            const aadhar = document.getElementById('aadhar');
+            const aadharRegex = /^\d{12}$/;
+            if (!aadharRegex.test(aadhar.value)) {
+                document.getElementById('aadharError').style.display = 'block';
+                aadhar.classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('aadharError').style.display = 'none';
+                aadhar.classList.remove('error');
+            }
+            const checkin = document.getElementById('checkin');
+            if (!checkin.value) {
+                document.getElementById('checkinError').style.display = 'block';
+                checkin.classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('checkinError').style.display = 'none';
+                checkin.classList.remove('error');
+            }
+            const checkout = document.getElementById('checkout');
+            if (!checkout.value) {
+                document.getElementById('checkoutError').style.display = 'block';
+                checkout.classList.add('error');
+                isValid = false;
+            } else if (checkout.value <= checkin.value) {
+                document.getElementById('checkoutError').textContent = 'Check-out date must be after check-in date';
+                document.getElementById('checkoutError').style.display = 'block';
+                checkout.classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('checkoutError').style.display = 'none';
+                checkout.classList.remove('error');
+            }
+            const adults = document.getElementById('adults');
+            if (!adults.value) {
+                document.getElementById('adultsError').style.display = 'block';
+                adults.classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('adultsError').style.display = 'none';
+                adults.classList.remove('error');
+            }
+            const rooms = document.getElementById('rooms');
+            if (!rooms.value) {
+                document.getElementById('roomsError').style.display = 'block';
+                rooms.classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('roomsError').style.display = 'none';
+                rooms.classList.remove('error');
+            }
+            
+            if (!roomTypeInput.value) {
+                document.getElementById('roomTypeError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('roomTypeError').style.display = 'none';
+            }
+            
+            if (isValid) {
+                successMessage.style.display = 'block';
+                reservationForm.reset();
+                roomCards.forEach(c => c.classList.remove('selected'));
+                successMessage.scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+        });
+        
+        document.getElementById('checkin').addEventListener('change', function() {
+            const checkinDate = new Date(this.value);
+            const checkoutDate = new Date(checkinDate);
+            checkoutDate.setDate(checkoutDate.getDate() + 1);
+            
+            const checkout = document.getElementById('checkout');
+            checkout.min = formatDate(checkoutDate);
+            
+            if (checkout.value && new Date(checkout.value) <= checkinDate) {
+                checkout.value = formatDate(checkoutDate);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinks - GSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-poppins">
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-utensils text-3xl text-amber-600 mr-2"></i>
+                <h1 class="text-2xl font-bold text-gray-800 font-playfair">GSS</h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-800 hover:text-amber-600 transition">Home</a>
+                <a href="menu_main.html" class="text-gray-800 hover:text-amber-600 transition">Main Courses</a>
+                <a href="menu_desserts.html" class="text-gray-800 hover:text-amber-600 transition">Desserts</a>
+                <a href="drinks_menu.html" class="text-gray-800 hover:text-amber-600 transition">Drinks</a>
+                <a href="cart.html" class="text-gray-800 hover:text-amber-600 transition">Cart</a>
+
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-800">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <a href="index.html" class="block py-2 text-gray-800 hover:text-amber-600">Home</a>
+            <a href="menu_main.html" class="block py-2 text-gray-800 hover:text-amber-600">Main Courses</a>
+            <a href="menu_desserts.html" class="block py-2 text-gray-800 hover:text-amber-600">Desserts</a>
+            <a href="drinks_menu.html" class="block py-2 text-gray-800 hover:text-amber-600">Drinks</a>
+            <a href="cart.html" class="text-gray-800 hover:text-amber-600 transition">Cart</a>
+        </div>
+    </header>
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 font-playfair">Soups</h2>
+            
+            <div class="mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="menu-card group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300" onclick="openModal({
+                        id: 301,
+                        name: 'Chicken Noodle Soup',
+                        image: 'Chicken Noodle Soup',
+                    })">
+                        <img src="Chicken Noodle Soup.jpg" alt="Haven Spritz" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white mb-1">Chicken Noodle Soup</h3>
+                                <p class="text-amber-300">hearty dish made with tender chicken, egg noodles, and vegetables simmered in a flavorful broth</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-card group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300" onclick="openModal({
+                        id: 302,
+                        name: 'Cream of Tomato Soup',
+                        image: 'Cream of Tomato Soup',
+                    })">
+                        <img src="Cream of Tomato Soup.jpg" alt="Gourmet Martini" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white mb-1">Cream of Tomato Soup</h3>
+                                <p class="text-amber-300">smooth and creamy soup made with ripe tomatoes, aromatic herbs, and a touch of cream</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-card group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300" onclick="openModal({
+                        id: 302,
+                        name: 'Lentil Soup',
+                        image: 'Lentil Soup',
+                    })">
+                        <img src="Lentil Soup.jpg" alt="Lentil Soup" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white mb-1">Lentil Soup</h3>
+                                <p class="text-amber-300"> A hearty soup made from lentils, often pureed for a creamy texture</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="menu-card group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300" onclick="openModal({
+                        id: 302,
+                        name: 'Beef Stew',
+                        image: 'Beef Stew',
+                    })">
+                        <img src="Beef Stew.jpg" alt="Beef Stew" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white mb-1">Beef Stew</h3>
+                                <p class="text-amber-300"> A hearty dish made with beef, vegetables, and broth, often thicker than soup.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-card group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300" onclick="openModal({
+                        id: 302,
+                        name: 'Miso Soup',
+                        image: 'Miso Soup',
+                    })">
+                        <img src="Miso Soup.jpg" alt="Miso Soup" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white mb-1">Miso Soup</h3>
+                                <p class="text-amber-300"> A Japanese soup made with miso paste, tofu, seaweed, and green onions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 font-playfair">GSS</h3>
+                    <p class="text-gray-300">Kelambakkam - Vandalur Rd, Rajan Nagar, Chennai, Tamil Nadu 600127</p>
+                    <p class="text-gray-300 mt-2">Phone:+91 6302154564</p>
+                    <p class="text-gray-300">Email: lalganesh2190@gamil.com</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 font-playfair">Opening Hours</h3>
+                    <p class="text-gray-300">Monday - Friday: 11:00 AM - 10:00 PM</p>
+                    <p class="text-gray-300">Saturday - Sunday: 10:00 AM - 11:00 PM</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 font-playfair">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/feed/" class="text-gray-300 hover:text-amber-400 transition"><i class="fab fa-linkedin-in text-xl"></i></a>
+                        <a href="https://www.instagram.com/" class="text-gray-300 hover:text-amber-400 transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="https://x.com/home" class="text-gray-300 hover:text-amber-400 transition"><i class="fab fa-twitter text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 GSS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="menu.css"></script>
+</body>
+</html>

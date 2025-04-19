@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Courses - GSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-poppins">
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-utensils text-3xl text-amber-600 mr-2"></i>
+                <h1 class="text-2xl font-bold text-gray-800 font-playfair">GSS</h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-800 hover:text-amber-600 transition">Home</a>
+                <a href="menu_soup.html" class="text-gray-800 hover:text-amber-600 transition">soup</a>
+                <a href="menu_desserts.html" class="text-gray-800 hover:text-amber-600 transition">Desserts</a>
+                <a href="drinks_menu.html" class="text-gray-800 hover:text-amber-600 transition">Drinks</a>
+                <a href="cart.html" class="text-gray-800 hover:text-amber-600 transition">Cart</a>
+
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-800">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <a href="index.html" class="block py-2 text-gray-800 hover:text-amber-600">Home</a>
+            <a href="menu_soup.html" class="block py-2 text-gray-800 hover:text-amber-600">soup</a>
+            <a href="menu_desserts.html" class="block py-2 text-gray-800 hover:text-amber-600">Desserts</a>
+            <a href="drinks_menu.html" class="block py-2 text-gray-800 hover:text-amber-600">Drinks</a>
+            <a href="cart.html" class="text-gray-800 hover:text-amber-600 transition">Cart</a>
+        </div>
+    </header>
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 font-playfair">Main Courses</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="menu-card group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300" onclick="openModal(menuItems.mains[0])">
+                    <img src="https://images.pexels.com/photos/1251208/pexels-photo-1251208.jpeg" alt="Filet Mignon" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Filet Mignon</h3>
+                            <p class="text-amber-300">8oz grass-fed beef tenderloin</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-card group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300" onclick="openModal({
+                    id: 102,
+                    name: 'Pan-Seared Salmon',
+                    image: 'https://images.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg',
+                })">
+                    <img src="https://images.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg" alt="Pan-Seared Salmon" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Pan-Seared Salmon</h3>
+                            <p class="text-amber-300">Wild-caught with lemon beurre blanc</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-card group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300" onclick="openModal({
+                    id: 103,
+                    name: 'Mushroom Risotto',
+                    image: 'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg',
+                })">
+                    <img src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg" alt="Mushroom Risotto" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Mushroom Risotto</h3>
+                            <p class="text-amber-300">Creamy arborio rice with wild mushrooms</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="menu-card group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300" onclick="openModal({
+                    id: 103,
+                    name: 'chicken biriyani',
+                    image: 'chicken biriyani',
+                })">
+                    <img src="biriyani.jpg" alt="biriyani" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1"> Chicken Biriyani</h3>
+                            <p class="text-amber-300">flavorful layered rice dish and marinated chicken</p>
+                        </div>
+                    </div>
+                </div> 
+                  <div class="menu-card group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300" onclick="openModal({
+                    id: 103,
+                    name: 'Mutton biriyani',
+                    image: 'Mutton biriyani',
+                })">
+                    <img src="Mutton_biriyani.jpg" alt="biriyani" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1"> Mutton Biriyani</h3>
+                            <p class="text-amber-300">flavorful layered rice dish and marinated Mutton</p>
+                        </div>
+                    </div>
+                </div> 
+                  <div class="menu-card group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300" onclick="openModal({
+                    id: 103,
+                    name: 'Soya Dum biriyani',
+                    image: 'Soya Dum biriyani',
+                })">
+                    <img src="Soya Dum Biryani.png" alt="biriyani" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1"> Soya Dum Biryani</h3>
+                            <p class="text-amber-300">flavorful and aromatic vegetarian biryani made with protein-rich soya chunks</p>
+                        </div>
+                    </div>
+                </div> 
+                 <div class="menu-card group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300" onclick="openModal({
+                    id: 103,
+                    name: 'Meal',
+                    image: 'Meal',
+                })">
+                    <img src="meal.jpg" alt="Meal" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1"> Meal</h3>
+                            <p class="text-amber-300">vibrant,spicy spread featuring rice,tangy tamarind curries,lentils,pickles</p>
+                        </div>
+                    </div>
+                </div> 
+                 <div class="menu-card group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300" onclick="openModal({
+                    id: 103,
+                    name: 'roti',
+                    image: 'roti',
+                })">
+                    <img src="roti.jpg" alt="roti" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1"> roti</h3>
+                            <p class="text-amber-300">Indian flatbread made with whole wheat flour, cooked on a hot griddle</p>
+                        </div>
+                    </div>
+                </div> 
+                 <div class="menu-card group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition duration-300" onclick="openModal({
+                    id: 103,
+                    name: 'curry',
+                    image: 'curry',
+                })">
+                    <img src="curry.jpg" alt="curry" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1">curry</h3>
+                            <p class="text-amber-300">flavorful dish made with a blend of spices, herbs, and vegetables or proteins</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 font-playfair">GSS</h3>
+                    <p class="text-gray-300">Kelambakkam - Vandalur Rd, Rajan Nagar, Chennai, Tamil Nadu 600127</p>
+                    <p class="text-gray-300 mt-2">Phone: +91 6302154564</p>
+                    <p class="text-gray-300">Email: lalganesh2190@gamil.com</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 font-playfair">Opening Hours</h3>
+                    <p class="text-gray-300">Monday - Friday: 11:00 AM - 10:00 PM</p>
+                    <p class="text-gray-300">Saturday - Sunday: 10:00 AM - 11:00 PM</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 font-playfair">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/feed/" class="text-gray-300 hover:text-amber-400 transition"><i class="fab fa-linkedin-in text-xl"></i></a>
+                        <a href="https://www.instagram.com/" class="text-gray-300 hover:text-amber-400 transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="https://x.com/home" class="text-gray-300 hover:text-amber-400 transition"><i class="fab fa-twitter text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 GSS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="menu.css"></script>
+</body>
+</html>

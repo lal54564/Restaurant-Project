@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Wedding Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                              url('https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg');
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <section class="hero-bg bg-cover bg-center py-24 text-white text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Your Dream Wedding Awaits</h1>
+            <p class="text-xl mb-8">Book your perfect day with our premium services</p>
+            <a href="#booking" class="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-full transition duration-300">
+                Book Now <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
+    <div class="container mx-auto px-4 py-12">
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-heart text-red-500 mr-3"></i> Our Wedding Services
+            </h2>
+            <ul class="grid md:grid-cols-3 gap-6">
+                <li class="bg-gray-50 p-6 rounded-lg hover:shadow-md transition duration-300">
+                    <i class="fas fa-glass-cheers text-3xl text-red-500 mb-3"></i>
+                    <h3 class="font-semibold text-lg">Reception</h3>
+                    <p class="text-gray-600 mt-2">Elegant venues with premium catering</p>
+                </li>
+                <li class="bg-gray-50 p-6 rounded-lg hover:shadow-md transition duration-300">
+                    <i class="fas fa-ring text-3xl text-red-500 mb-3"></i>
+                    <h3 class="font-semibold text-lg">Ceremony</h3>
+                    <p class="text-gray-600 mt-2">Beautiful wedding ceremony packages</p>
+                </li>
+                <li class="bg-gray-50 p-6 rounded-lg hover:shadow-md transition duration-300">
+                    <i class="fas fa-camera text-3xl text-red-500 mb-3"></i>
+                    <h3 class="font-semibold text-lg">Photo Session</h3>
+                    <p class="text-gray-600 mt-2">Professional photography services</p>
+                </li>
+            </ul>
+        </div>
+        <div id="booking" class="bg-white rounded-xl shadow-lg p-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-calendar-check text-red-500 mr-3"></i> Book Your Slot
+            </h2>
+            <div id="error-message" class="hidden bg-red-100 text-red-600 p-4 rounded mb-6"></div>
+            <form class="max-w-md mx-auto">
+                <div class="mb-6">
+                    <label class="block text-gray-700 mb-2">Service Type</label>
+                    <select id="wedding-type" class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-300 focus:border-red-300">
+                        <option value="" disabled selected>Select a service</option>
+                        <option value="reception">Reception</option>
+                        <option value="ceremony">Marriage Ceremony</option>
+                        <option value="photo">Photo Session</option>
+                    </select>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-gray-700 mb-2">Date</label>
+                        <input type="date" id="date" class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-300 focus:border-red-300">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Time</label>
+                        <input type="time" id="time" class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-300 focus:border-red-300">
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-red-500 hover:bg-red-600 text-white py-3 px-6 rounded-lg font-semibold transition duration-300">
+                    Confirm Booking <i class="fas fa-paper-plane ml-2"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="https://x.com/home" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/feed/" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p class="text-gray-400">© 2023 GSS Weddings. All rights reserved.</p>
+            <p class="text-gray-500 mt-2">Contact: lalganesh2190@gamil.com.com</p>
+        </div>
+    </footer>
+
+    <script src="wedding.js"></script>
+</body>
+</html>

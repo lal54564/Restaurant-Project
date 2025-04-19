@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Standard Hotel Room</title>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ margin: 0;
+ padding: 0;
+ line-height: 1.6;
+ background-color: #f4f4f4; 
+ color: #333;
+ }
+ .container {
+ width: 80%;
+ margin: auto;
+ padding: 20px;
+ }
+ .header {
+ text-align: center;
+ padding: 20px 0;
+ background-color: #fff;
+ margin-bottom: 20px;
+ }
+ .header h1 {
+ margin: 0;
+ font-size: 2.5em;
+ }
+ .room-details {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ }
+ .room-image {
+ width: 60%;
+ }
+ .room-image img {
+ width: 100%;
+ height: auto;
+ display: block;
+ border-radius: 8px;
+ }
+ .room-description {
+ width: 35%;
+ background-color: #fff;
+ padding: 20px;
+ border-radius: 8px;
+ }
+ .room-description h2 {
+ font-size: 1.8em;
+ margin-bottom: 10px;
+ }
+ .amenities {
+ background-color: #fff;
+ padding: 20px;
+ border-radius: 8px;
+ margin-top: 20px;
+ }
+ .amenities h2 {
+ font-size: 1.5em;
+ margin-bottom: 10px;
+ }
+ .amenities ul {
+ list-style: none;
+ padding: 0;
+ }
+ .amenities li {
+ margin-bottom: 5px;
+ }
+ .booking {
+ background-color: #fff;
+ padding: 20px;
+ border-radius: 8px;
+ margin-top: 20px;
+ text-align: center;
+ }
+ .booking a {
+ display: inline-block;
+ padding: 10px 20px;
+ background-color: #007bff; 
+ color: #fff;
+ text-decoration: none;
+ border-radius: 5px;
+ }
+ .footer {
+ text-align: center;
+ padding: 20px 0;
+ background-color: #333;
+ color: #fff;
+ margin-top: 20px;
+ }
+ @media (max-width: 768px) {
+ .container {
+ width: 95%;
+ padding: 10px;
+ }
+ .room-details {
+ flex-direction: column;
+ }
+ .room-image {
+ width: 100%;
+ margin-bottom: 10px;
+ }
+ .room-description {
+ width: 100%;
+ }
+ }
+ </style>
+</head>
+<body>
+ <div class="container">
+ <header class="header">
+ <h1>Standard Room</h1>
+ </header>
+ <section class="room-details">
+ <div class="room-image">
+ <img src="standard_room.png" alt="Standard Room">
+ </div>
+ <div class="room-description">
+ <h2>About Our Standard Room</h2>
+ <p>This luxurious Standard room offers stunning views and premium amenities for an unforgettable stay. Enjoy a spacious layout, a comfortable king-size bed, and a private balcony.</p>
+ <p>Other features include a state-of-the-art entertainment system, high-speed Wi-Fi, and a fully stocked mini-bar.</p>
+ </div>
+ </section>
+ <section class="amenities">
+ <h2>Room Amenities</h2>
+ <ul>
+ <li>Double or 2 Single Beds</li>
+ <li>Flat Screen TV</li>
+ <li>Telephone</li>
+ <li>High-speed Wi-Fi</li>
+ <li>Individually Controlled A/C & Heating</li>
+ <li>Coffee maker</li>
+ <li>Luxury toiletries</li>
+ <li>Balcony</li>
+ <li>24-hour room service</li>
+
+ </ul>
+ </section>
+ <section class="booking">
+ <h2>Book Your Stay</h2>
+ <p>Experience the ultimate in comfort and luxury. Book your deluxe room today!</p>
+ <a href="#">Check Availability</a>
+ </section>
+ <footer class="footer">
+ <p>&copy; 2025 Hotel Name. All rights reserved.</p>
+ </footer>
+ </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="party.css">
+    <style>
+        body {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg') no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-white p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-4xl font-bold mb-8 text-center">Party Booking</h1>
+        <div id="party-types" class="bg-white/10 backdrop-blur-md rounded-xl p-8 mb-8">
+            <h2 class="text-2xl font-semibold mb-6">Party Types</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="party-card bg-white/20 p-6 rounded-lg transition-all hover:scale-105 cursor-pointer">
+                    <i class="fas fa-birthday-cake text-4xl mb-4"></i>
+                    <h3 class="text-xl font-medium">Birthday Party</h3>
+                </div>
+                <div class="party-card bg-white/20 p-6 rounded-lg transition-all hover:scale-105 cursor-pointer">
+                    <i class="fas fa-music text-4xl mb-4"></i>
+                    <h3 class="text-xl font-medium">DJ Night</h3>
+                </div>
+                <div class="party-card bg-white/20 p-6 rounded-lg transition-all hover:scale-105 cursor-pointer">
+                    <i class="fas fa-swimming-pool text-4xl mb-4"></i>
+                    <h3 class="text-xl font-medium">Pool Party</h3>
+                </div>
+                <div class="party-card bg-white/20 p-6 rounded-lg transition-all hover:scale-105 cursor-pointer">
+                    <i class="fas fa-mask text-4xl mb-4"></i>
+                    <h3 class="text-xl font-medium">Theme Party</h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="slot-booking" class="bg-white/10 backdrop-blur-md rounded-xl p-8">
+            <h2 class="text-2xl font-semibold mb-6">Book Your Slot</h2>
+            <form class="grid gap-6 max-w-md">
+                <div>
+                    <label for="party-type" class="block text-sm font-medium mb-2">Party Type:</label>
+                    <select id="party-type" class="w-full p-3 rounded-lg bg-gray-50/20 border border-gray-700/30 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="birthday">Birthday Party</option>
+                        <option value="dj-night">DJ Night</option>
+                        <option value="pool">Pool Party</option>
+                        <option value="theme">Theme Party</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="date" class="block text-sm font-medium mb-2">Date:</label>
+                    <input type="date" id="date" class="w-full p-3 rounded-lg bg-white/20 border border-white/30 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div>
+                    <label for="time" class="block text-sm font-medium mb-2">Time:</label>
+                    <input type="time" id="time" class="w-full p-3 rounded-lg bg-white/20 border border-white/30 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105">
+                    Book Now
+                </button>
+            </form>
+        </div>
+
+        <div id="toast" class="hidden fixed bottom-5 right-5 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg"></div>
+    </div>
+
+    <script src="party.js"></script>
+</body>
+</html>
